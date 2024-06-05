@@ -11,44 +11,43 @@ data = [
     "children": [
       {
         "id": "North America",
-        "datum": 450448697,
+        "datum": 10000000,
         "children": [
           {
             "id": "United States",
-            "datum": 308865000
+            "datum": 10000000
           },
           {
             "id": "Mexico",
-            "datum": 107550697
+            "datum": 10000000
           },
           {
             "id": "Canada",
-            "datum": 34033000
+            "datum": 10000000
           }
         ]
       },
       {
-        "id": "South America",
-        "datum": 278095425,
+        "id": "yuè",
+        "datum": 10000000,
         "children": [
           {
-            "id": "Brazil",
-            "datum": 192612000
+            "id": "岳",
+            "datum": 10000000
           },
           {
-            "id": "Colombia",
-            "datum": 45349000
+            "id": "月",
+            "datum": 10000000
           },
           {
-            "id": "Argentina",
-            "datum": 40134425
+            "id": "乐",
+            "datum": 10000000
           }
         ]
       }
     ]
   }
 ]
-
 
 # Compute circle positions thanks to the circlify() function
 circles = circlify.circlify(
