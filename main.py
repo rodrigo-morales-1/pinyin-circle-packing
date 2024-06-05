@@ -92,6 +92,7 @@ for circle in circles:
                  linewidth=2, color="#69b3a2"))
     plt.annotate(label,
                  (x, y),
+                 fontsize = 12,
                  ha='center',
                  color="black")
 
@@ -103,6 +104,7 @@ for circle in circles:
     label = circle.ex["id"]
     plt.annotate(label,
                  (x, y),
+                 fontsize = 12,
                  va='center',
                  ha='center',
                  bbox=dict(facecolor='white',
