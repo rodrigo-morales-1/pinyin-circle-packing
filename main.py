@@ -93,7 +93,7 @@ for circle in circles:
     plt.annotate(label,
                  (x, y),
                  ha='center',
-                 color="white")
+                 color="black")
 
 # Print labels for the continents
 for circle in circles:
