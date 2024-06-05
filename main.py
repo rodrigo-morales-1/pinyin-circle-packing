@@ -150,7 +150,13 @@ for circle in circles:
         continue
     x, y, r = circle
     label = circle.ex["id"]
-    plt.annotate(label, (x, y), va='center', ha='center', bbox=dict(
-        facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
+    plt.annotate(label,
+                 (x, y),
+                 va='center',
+                 ha='center',
+                 bbox=dict(facecolor='white',
+                           edgecolor='black',
+                           boxstyle='round',
+                           pad=.5))
 
 plt.savefig('/tmp/a.png')
