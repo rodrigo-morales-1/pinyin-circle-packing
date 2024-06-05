@@ -90,7 +90,10 @@ for circle in circles:
     label = circle.ex["id"]
     ax.add_patch(plt.Circle((x, y), r, alpha=0.5,
                  linewidth=2, color="#69b3a2"))
-    plt.annotate(label, (x, y), ha='center', color="white")
+    plt.annotate(label,
+                 (x, y),
+                 ha='center',
+                 color="white")
 
 # Print labels for the continents
 for circle in circles:
