@@ -2,6 +2,8 @@
 import circlify
 import matplotlib.pyplot as plt
 
+plt.rcParams["font.family"] = "Noto Sans CJK SC"
+
 data = [
   {
     "id": "World",
