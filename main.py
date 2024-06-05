@@ -112,9 +112,6 @@ circles = circlify.circlify(
 # Create just a figure and only one subplot
 fig, ax = plt.subplots(figsize=(14, 14))
 
-# Title
-ax.set_title('Repartition of the world population')
-
 # Remove axes
 ax.axis('off')
 
