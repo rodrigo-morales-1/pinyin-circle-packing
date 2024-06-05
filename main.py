@@ -42,60 +42,6 @@ data = [
             "datum": 40134425
           }
         ]
-      },
-      {
-        "id": "Europe",
-        "datum": 209246682,
-        "children": [
-          {
-            "id": "Germany",
-            "datum": 81757600
-          },
-          {
-            "id": "France",
-            "datum": 65447374
-          },
-          {
-            "id": "United Kingdom",
-            "datum": 62041708
-          }
-        ]
-      },
-      {
-        "id": "Africa",
-        "datum": 311929000,
-        "children": [
-          {
-            "id": "Nigeria",
-            "datum": 154729000
-          },
-          {
-            "id": "Ethiopia",
-            "datum": 79221000
-          },
-          {
-            "id": "Egypt",
-            "datum": 77979000
-          }
-        ]
-      },
-      {
-        "id": "Asia",
-        "datum": 2745929500,
-        "children": [
-          {
-            "id": "China",
-            "datum": 1336335000
-          },
-          {
-            "id": "India",
-            "datum": 1178225000
-          },
-          {
-            "id": "Indonesia",
-            "datum": 231369500
-          }
-        ]
       }
     ]
   }
