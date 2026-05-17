@@ -1,0 +1,5 @@
+Create image showing the 8105 characters from 通用规范汉字表 grouped by pinyin.
+
+[[file:img/sample-1.png]]
+[[file:img/sample-2.png]]
+
