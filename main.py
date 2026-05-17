@@ -94,5 +94,3 @@ plt.savefig(output_file, dpi=dpi)
 elapsed_seconds = time.time() - start_time
 elapsed_time = datetime.timedelta(seconds=elapsed_seconds)
 print(f"--- Execution time: {elapsed_time} ---")
-
-
