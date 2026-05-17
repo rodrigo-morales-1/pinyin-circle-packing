@@ -44,11 +44,9 @@ for line in file_input:
         if not child_root_depth_1:
             root['children'].append({
                 "id": syllable_no_accents,
-                "datum": 1,
                 "children": [
                     {
                         'id': syllable_with_accents,
-                        'datum': 1,
                         'children': [
                             {
                                 'id': character,
@@ -63,7 +61,6 @@ for line in file_input:
             if not child_root_depth_2:
                 child_root_depth_1['children'].append({
                     "id": syllable_with_accents,
-                    "datum": 1,
                     "children": [
                         {
                             'id': character,
@@ -76,6 +73,16 @@ for line in file_input:
                     'id': character,
                     'datum': 1
                 })
+
+# Set datum
+root = data_output[0]
+for children_root_depth_1 in root['children']:
+    children_root_depth_1_datum = 0
+    for children_root_depth_2 in children_root_depth_1['children']:
+        children_root_depth_2_count_chinese_characters = len(children_root_depth_2['children'])
+        children_root_depth_2['datum'] = children_root_depth_2_count_chinese_characters
+        children_root_depth_1_datum += children_root_depth_2_count_chinese_characters
+    children_root_depth_1['datum'] = children_root_depth_1_datum
 
 file_output = open(os.path.basename(__file__) + '.json', 'w')
 file_output.write(json.dumps(data_output, indent=4, ensure_ascii=False))

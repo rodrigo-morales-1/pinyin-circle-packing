@@ -52,7 +52,7 @@ for circle in circles:
                          facecolor='white',
                          edgecolor='black',
                          boxstyle='round',
-                         pad=.5))
+                         pad=.25))
     # Circles in depth level 3: Pinyin with accents
     if circle.level == 3:
         x, y, r = circle
@@ -64,14 +64,14 @@ for circle in circles:
                          facecolor='white',
                          edgecolor='black',
                          boxstyle='round',
-                         pad=.5))
+                         pad=.25))
     # Circles in depth level 4: Chinese characters
     elif circle.level == 4:
         x, y, r = circle
-        ax.add_patch(plt.Circle((x, y), r, facecolor="white"))
+        ax.add_patch(plt.Circle((x, y), r, facecolor="lightblue"))
         # Show label
         label = circle.ex["id"]
-        plt.annotate(label, (x, y), ha='center', color="black")
+        plt.annotate(label, (x, y), va='center', ha='center', color="black")
 
 plt.savefig(os.path.basename(__file__) + '.png', dpi=300)
 
