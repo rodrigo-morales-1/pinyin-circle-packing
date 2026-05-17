@@ -1,5 +1,6 @@
-Create image showing the 8105 characters from 通用规范汉字表 grouped by pinyin.
+The file =main.py= contains Python code to create an image showing the 8105 characters from [[https://www.wikidata.org/wiki/Special:GoToLinkedPage/enwiki/Q14941454][通用规范汉字表]] grouped by pinyin.
+
+The size of the output image is 42 MB, so it hasn't been included in this repository. Here are some sample images of how that big image looks:
 
 [[file:img/sample-1.png]]
 [[file:img/sample-2.png]]
-
