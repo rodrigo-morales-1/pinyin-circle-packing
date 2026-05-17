@@ -1,53 +1,13 @@
-# import the circlify library
 import circlify
 import matplotlib.pyplot as plt
+import os
+import json
 
-plt.rcParams["font.family"] = "Noto Sans CJK SC"
+plt.rcParams["font.family"] = "Noto Serif CJK SC"
 
-data = [
-  {
-    "id": "World",
-    "datum": 6964195249,
-    "children": [
-      {
-        "id": "North America",
-        "datum": 10000000,
-        "children": [
-          {
-            "id": "United States",
-            "datum": 10000000
-          },
-          {
-            "id": "Mexico",
-            "datum": 10000000
-          },
-          {
-            "id": "Canada",
-            "datum": 10000000
-          }
-        ]
-      },
-      {
-        "id": "yuè",
-        "datum": 10000000,
-        "children": [
-          {
-            "id": "岳",
-            "datum": 10000000
-          },
-          {
-            "id": "月",
-            "datum": 10000000
-          },
-          {
-            "id": "乐",
-            "datum": 10000000
-          }
-        ]
-      }
-    ]
-  }
-]
+file_json = 'data/create-json.py.json'
+with open(file_json, 'r') as f:
+    data = json.load(f)
 
 # Compute circle positions thanks to the circlify() function
 circles = circlify.circlify(
@@ -58,6 +18,9 @@ circles = circlify.circlify(
 
 # Create just a figure and only one subplot
 fig, ax = plt.subplots(figsize=(14, 14))
+
+# Title
+ax.set_title('拼音分组汉字图')
 
 # Remove axes
 ax.axis('off')
@@ -73,42 +36,42 @@ lim = max(
 plt.xlim(-lim, lim)
 plt.ylim(-lim, lim)
 
-# Print circle the highest level (continents):
 for circle in circles:
-    if circle.level != 2:
-        continue
-    x, y, r = circle
-    ax.add_patch(plt.Circle((x, y), r, alpha=0.5,
-                 linewidth=2, color="lightblue"))
+    # Circles in depth level 1
+    if circle.level == 1:
+        x, y, r = circle
+        ax.add_patch(plt.Circle((x, y), r, facecolor="white", edgecolor="black"))
+    # Circles in depth level 2: Pinyin without accents
+    if circle.level == 2:
+        x, y, r = circle
+        ax.add_patch(plt.Circle((x, y), r, facecolor="white", edgecolor="black"))
+        # Add label
+        label = circle.ex["id"]
+        plt.annotate(label, (x, y + r), va='center', ha='center',
+                     bbox=dict(
+                         facecolor='white',
+                         edgecolor='black',
+                         boxstyle='round',
+                         pad=.5))
+    # Circles in depth level 3: Pinyin with accents
+    if circle.level == 3:
+        x, y, r = circle
+        ax.add_patch(plt.Circle((x, y), r, facecolor="white", edgecolor="black"))
+        # Add label
+        label = circle.ex["id"]
+        plt.annotate(label, (x, y + r), va='center', ha='center',
+                     bbox=dict(
+                         facecolor='white',
+                         edgecolor='black',
+                         boxstyle='round',
+                         pad=.5))
+    # Circles in depth level 4: Chinese characters
+    elif circle.level == 4:
+        x, y, r = circle
+        ax.add_patch(plt.Circle((x, y), r, facecolor="white"))
+        # Show label
+        label = circle.ex["id"]
+        plt.annotate(label, (x, y), ha='center', color="black")
 
-# Print circle and labels for the highest level:
-for circle in circles:
-    if circle.level != 3:
-        continue
-    x, y, r = circle
-    label = circle.ex["id"]
-    ax.add_patch(plt.Circle((x, y), r, alpha=0.5,
-                 linewidth=2, color="#69b3a2"))
-    plt.annotate(label,
-                 (x, y),
-                 fontsize = 12,
-                 ha='center',
-                 color="black")
+plt.savefig(os.path.basename(__file__) + '.png', dpi=300)
 
-# Print labels for the continents
-for circle in circles:
-    if circle.level != 2:
-        continue
-    x, y, r = circle
-    label = circle.ex["id"]
-    plt.annotate(label,
-                 (x, y),
-                 fontsize = 12,
-                 va='center',
-                 ha='center',
-                 bbox=dict(facecolor='white',
-                           edgecolor='black',
-                           boxstyle='round',
-                           pad=.5))
-
-plt.savefig('/tmp/a.png')
